@@ -4,7 +4,7 @@ public class MathEquation {
 
     private double leftVal;
     private double rightVal;
-    private char opCode;
+    private char opCode  = 'a';
     private double result;
 
     // using accessors and mutators
@@ -18,9 +18,11 @@ public class MathEquation {
         return rightVal;
     }
     public void setRightVal(double rightVal) {
+
         this.rightVal = rightVal;
     }
     public char getOpCode() {
+
         return opCode;
     }
     public void setOpCode(char opCode) {
@@ -30,6 +32,35 @@ public class MathEquation {
     public double getResult() {
         return result;
     }
+
+    // constructors and initializer
+    public MathEquation() {}
+
+    public MathEquation(char opCode){
+        this.opCode = opCode;
+    }
+
+    public MathEquation(char opCode, double leftVal, double rightVal){
+        this(opCode);  // chaining a constructor together
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+    }
+
+    public void execute(double leftVal, double rightVal){
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+
+        execute();
+    }
+    // Carters for an integer value
+    public void execute(int leftVal, int rightVal){
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+
+        execute();
+        result = (int)result;
+    }
+
 
 
     // public method execute, void; returns nothing and takes no parameters
